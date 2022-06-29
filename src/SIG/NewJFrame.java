@@ -4,6 +4,12 @@
  */
 package SIG;
 
+import controller.controller;
+import java.util.ArrayList;
+import javax.swing.JTable;
+import model.invoiceHeader;
+import model.invoiceHeaderTableModel;
+
 /**
  *
  * @author Bebo
@@ -14,6 +20,7 @@ public class NewJFrame extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     public NewJFrame() {
+        controller = new controller(this);
         initComponents();
     }
 
@@ -27,21 +34,28 @@ public class NewJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        invHeaderTable = new javax.swing.JTable();
+        invHeaderTable.getSelectionModel().addListSelectionListener(controller);
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        invLineTable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jButton1.addActionListener(controller);
         jButton2 = new javax.swing.JButton();
+        jButton2.addActionListener(controller);
         jButton3 = new javax.swing.JButton();
+        jButton3.addActionListener(controller);
         jButton4 = new javax.swing.JButton();
+        jButton4.addActionListener(controller);
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem1.addActionListener(controller);
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem2.addActionListener(controller);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        invHeaderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -52,9 +66,9 @@ public class NewJFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(invHeaderTable);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        invLineTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -65,11 +79,16 @@ public class NewJFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(invLineTable);
 
         jButton1.setText("create invoice");
 
         jButton2.setText("delete invoice");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Create line");
 
@@ -138,6 +157,10 @@ public class NewJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -174,6 +197,8 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable invHeaderTable;
+    private javax.swing.JTable invLineTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -184,7 +209,35 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
+private controller controller ;
+private ArrayList<invoiceHeader> invoiceHeaderList ;
+private invoiceHeaderTableModel headerTableModel;
+
+    public controller getController() {
+        return controller;
+    }
+
+   
+
+    public ArrayList<invoiceHeader> getInvoiceHeaderList() {
+        return invoiceHeaderList;
+    }
+
+    public void setInvoiceHeaderList(ArrayList<invoiceHeader> invoiceHeaderList) {
+        this.invoiceHeaderList = invoiceHeaderList;
+        headerTableModel= new invoiceHeaderTableModel(invoiceHeaderList);
+        this.invHeaderTable.setModel(headerTableModel);
+    }
+
+    public JTable getInvHeaderTable() {
+        return invHeaderTable;
+    }
+
+    public JTable getInvLineTable() {
+        return invLineTable;
+    }
+    
+
+
 }

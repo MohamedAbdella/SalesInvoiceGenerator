@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Bebo/Documents/NetBeansProjects/JavaApplication2/src/model/invoiceHeader.java</file>
-            <file>file:/C:/Users/Bebo/Documents/NetBeansProjects/JavaApplication2/src/controller/controller.java</file>
-            <file>file:/C:/Users/Bebo/Documents/NetBeansProjects/JavaApplication2/src/javaapplication2/NewJFrame.java</file>
-            <file>file:/C:/Users/Bebo/Documents/NetBeansProjects/JavaApplication2/src/model/invoiceLine.java</file>
+            <file>file:/C:/Users/Bebo/Documents/NetBeansProjects/SalesInvoiceGenerator/src/model/invoiceHeader.java</file>
+            <file>file:/C:/Users/Bebo/Documents/NetBeansProjects/SalesInvoiceGenerator/src/SIG/NewJFrame.java</file>
+            <file>file:/C:/Users/Bebo/Documents/NetBeansProjects/SalesInvoiceGenerator/src/model/invoiceLine.java</file>
+            <file>file:/C:/Users/Bebo/Documents/NetBeansProjects/SalesInvoiceGenerator/src/controller/controller.java</file>
         </group>
     </open-files>
 </project-private>
